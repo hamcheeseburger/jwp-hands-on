@@ -1,7 +1,7 @@
 server:
   tomcat:
-    accept-count: 1
-    max-connections: 2
+    accept-count: 100
+    max-connections: 250
     threads:
-      max: 2
+      max: 250
   port: 8081
