@@ -23,7 +23,7 @@ class AppTest {
      */
     @Test
     void test() throws Exception {
-        final var NUMBER_OF_THREAD = 10;
+        final var NUMBER_OF_THREAD = 50;
         var threads = new Thread[NUMBER_OF_THREAD];
 
         for (int i = 0; i < NUMBER_OF_THREAD; i++) {
@@ -32,14 +32,14 @@ class AppTest {
 
         for (final var thread : threads) {
             thread.start();
-            Thread.sleep(50);
+//            Thread.sleep(50);
         }
 
         for (final var thread : threads) {
             thread.join();
         }
 
-        assertThat(count.intValue()).isEqualTo(2);
+        assertThat(count.intValue()).isEqualTo(NUMBER_OF_THREAD);
     }
     /*
     * 그렇다면
