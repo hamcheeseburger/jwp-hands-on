@@ -1,5 +1,6 @@
 package nextstep.study.di.stage4.annotations;
 
+import java.util.Set;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -16,6 +17,10 @@ class DIContainer {
     private final Set<Object> beans;
 
     public DIContainer(final Set<Class<?>> classes) {
+        this.beans = Set.of();
+    }
+
+    public static DIContainer createContainerForPackage(final String rootPackageName) {
         this.beans = classes.stream()
                 .map(this::getInstance)
                 .collect(Collectors.toSet());
